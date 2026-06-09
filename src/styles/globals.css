@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+:root {
+  --color-ink: #050505;
+  --color-canvas: #FAFAFA;
+  --color-champagne: #F7E7CE;
+  
+  /* Fallbacks/Overrides for existing variables to Champagne/Ink themes */
+  --color-gold: #F7E7CE;
+  --color-rose-gold: #E6D5B8;
+  --color-blush: #1A1A1A; /* dark contrast */
+  --color-cream: #FAFAFA;
+}
+
+body {
+  @apply bg-[#FAFAFA] text-[#050505];
+  font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Cormorant Garamond', serif;
+  @apply tracking-tight;
+}
+
+h4, h5, h6, .font-sans-alt {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-champagne);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E6D5B8;
+}
