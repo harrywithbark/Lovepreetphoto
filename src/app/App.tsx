@@ -4,7 +4,6 @@ import { About } from './components/About';
 import { Services } from './components/Services';
 import { Portfolio } from './components/Portfolio';
 import { Testimonials } from './components/Testimonials';
-import { Pricing } from './components/Pricing';
 import { InstagramFeed } from './components/InstagramFeed';
 import { Locations } from './components/Locations';
 import { FAQ } from './components/FAQ';
@@ -37,7 +36,6 @@ export default function App() {
       <Services />
       <Portfolio />
       <Testimonials />
-      <Pricing />
       <InstagramFeed />
       <Locations />
       <FAQ />
