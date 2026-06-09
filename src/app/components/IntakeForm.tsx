@@ -1,131 +1,187 @@
 import { motion } from 'motion/react';
-import { Send } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Instagram } from 'lucide-react';
+
+const contactInfo = [
+  { icon: Mail, label: 'Email', value: 'hello@lovepreetfilms.com' },
+  { icon: Phone, label: 'Phone', value: '+44 7700 900 000' },
+  { icon: MapPin, label: 'Based In', value: 'India · Available Worldwide' },
+  { icon: Instagram, label: 'Instagram', value: '@lovepreetfilms' },
+];
 
 export function IntakeForm() {
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-[var(--color-ink)] text-white">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl mb-4 font-serif text-white">Let's Create Together</h2>
-          <div className="w-24 h-1 mx-auto mb-6 bg-[var(--color-champagne)]"></div>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-sans-alt">
-            We'd love to hear about your special day. Please fill out the form below and we'll get back to you within 48 hours.
-          </p>
-        </motion.div>
+    <section id="contact" className="bg-[#0C0A09] py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-24">
+          {/* Left — Brand + Contact info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-2 flex flex-col"
+          >
+            <img src="/logo.png" alt="Lovepreet Photos & Films" className="w-20 h-20 rounded-full object-cover mb-8 border border-[#B8956A]/30" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/10"
-        >
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-8" onSubmit={(e) => e.preventDefault()}>
-            {/* Column 1 */}
-            <div className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Full Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all"
-                  placeholder="Your Name"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="partner_name" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Partner's Name</label>
-                <input
-                  type="text"
-                  id="partner_name"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all"
-                  placeholder="Partner's Name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all"
-                  placeholder="hello@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Phone Number</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all"
-                  placeholder="+1 (555) 000-0000"
-                />
-              </div>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-10 h-px bg-[#B8956A]" />
+              <span className="font-sans-alt text-[#B8956A] text-xs font-semibold tracking-[0.3em] uppercase">Get In Touch</span>
             </div>
 
-            {/* Column 2 */}
-            <div className="space-y-6">
-              <div>
-                <label htmlFor="event_date" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Event Date</label>
-                <input
-                  type="date"
-                  id="event_date"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert"
-                />
+            <h2 className="font-serif text-5xl sm:text-6xl text-white mb-6" style={{ fontWeight: 300 }}>
+              Let's Create<br />
+              <span style={{ fontStyle: 'italic', color: '#B8956A' }}>Together</span>
+            </h2>
+
+            <p className="font-sans text-white/50 leading-relaxed mb-12">
+              Every great wedding story begins with a conversation. Tell us about your day — we'd love to hear every detail.
+            </p>
+
+            {/* Contact details */}
+            <div className="space-y-6 mb-12">
+              {contactInfo.map((item) => (
+                <div key={item.label} className="flex items-center gap-4">
+                  <div className="w-10 h-10 border border-[#B8956A]/30 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-[#B8956A]" />
+                  </div>
+                  <div>
+                    <p className="font-sans-alt text-white/30 text-xs tracking-wider uppercase mb-0.5">{item.label}</p>
+                    <p className="font-sans text-white/70 text-sm">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Trust signals */}
+            <div className="border-t border-white/10 pt-8 mt-auto">
+              <p className="font-sans-alt text-white/30 text-xs tracking-wider uppercase mb-4">As Featured In</p>
+              <div className="flex flex-wrap gap-4">
+                {['Vogue Weddings', 'Harper\'s Bazaar', 'Brides India', 'The Knot'].map(pub => (
+                  <span key={pub} className="font-sans-alt text-white/40 text-xs tracking-wide border border-white/10 px-3 py-1.5">
+                    {pub}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right — Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-3"
+          >
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Your Name</label>
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border border-white/10 px-4 py-3.5 text-white font-sans text-sm placeholder:text-white/20 focus:outline-none focus:border-[#B8956A] transition-colors"
+                    placeholder="First & Last Name"
+                  />
+                </div>
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Partner's Name</label>
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border border-white/10 px-4 py-3.5 text-white font-sans text-sm placeholder:text-white/20 focus:outline-none focus:border-[#B8956A] transition-colors"
+                    placeholder="First & Last Name"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Email Address</label>
+                  <input
+                    type="email"
+                    className="w-full bg-transparent border border-white/10 px-4 py-3.5 text-white font-sans text-sm placeholder:text-white/20 focus:outline-none focus:border-[#B8956A] transition-colors"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Phone Number</label>
+                  <input
+                    type="tel"
+                    className="w-full bg-transparent border border-white/10 px-4 py-3.5 text-white font-sans text-sm placeholder:text-white/20 focus:outline-none focus:border-[#B8956A] transition-colors"
+                    placeholder="+1 (555) 000 0000"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Wedding Date</label>
+                  <input
+                    type="date"
+                    className="w-full bg-transparent border border-white/10 px-4 py-3.5 text-white/70 font-sans text-sm focus:outline-none focus:border-[#B8956A] transition-colors [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert [&::-webkit-calendar-picker-indicator]:opacity-30"
+                  />
+                </div>
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Venue / Location</label>
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border border-white/10 px-4 py-3.5 text-white font-sans text-sm placeholder:text-white/20 focus:outline-none focus:border-[#B8956A] transition-colors"
+                    placeholder="City, Country or Venue"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Services Interested In</label>
+                  <select
+                    className="w-full bg-[#1A1410] border border-white/10 px-4 py-3.5 text-white/70 font-sans text-sm focus:outline-none focus:border-[#B8956A] transition-colors"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="photography">Photography</option>
+                    <option value="cinematography">Cinematography</option>
+                    <option value="both">Photography & Cinematography</option>
+                    <option value="prewedding">Pre-Wedding Shoot</option>
+                    <option value="full">Full Prestige Package</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Approximate Budget</label>
+                  <select
+                    className="w-full bg-[#1A1410] border border-white/10 px-4 py-3.5 text-white/70 font-sans text-sm focus:outline-none focus:border-[#B8956A] transition-colors"
+                  >
+                    <option value="">Select range</option>
+                    <option value="essential">£2,000 – £3,999</option>
+                    <option value="signature">£4,000 – £6,999</option>
+                    <option value="prestige">£7,000 – £12,000</option>
+                    <option value="bespoke">£12,000+</option>
+                  </select>
+                </div>
               </div>
 
               <div>
-                <label htmlFor="event_location" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Venue / Location</label>
-                <input
-                  type="text"
-                  id="event_location"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all"
-                  placeholder="City, State, or Venue Name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="services" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Interested Services</label>
-                <select
-                  id="services"
-                  className="w-full px-4 py-3 bg-[#1A1A1A] border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all"
-                >
-                  <option value="photography">Photography Only</option>
-                  <option value="videography">Cinematography Only</option>
-                  <option value="both">Photography & Cinematography</option>
-                  <option value="prewedding">Pre-wedding Shoot</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="details" className="block text-sm font-medium text-gray-300 mb-2 font-sans-alt">Tell Us More</label>
+                <label className="block font-sans-alt text-white/40 text-xs tracking-[0.15em] uppercase mb-3">Tell Us About Your Wedding</label>
                 <textarea
-                  id="details"
-                  rows={4}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-champagne)] text-white transition-all resize-none"
-                  placeholder="Share details about your wedding vision, guest count, and what you're looking for..."
-                ></textarea>
+                  rows={5}
+                  className="w-full bg-transparent border border-white/10 px-4 py-3.5 text-white font-sans text-sm placeholder:text-white/20 focus:outline-none focus:border-[#B8956A] transition-colors resize-none"
+                  placeholder="Share your vision — the venue, the style, any special moments you want captured, cultural elements, or anything else that makes your day uniquely yours..."
+                />
               </div>
-            </div>
 
-            <div className="md:col-span-2 flex justify-center mt-4">
-              <button
-                type="submit"
-                className="group flex items-center gap-2 px-8 py-4 bg-[var(--color-champagne)] text-[#050505] rounded-full font-medium hover:bg-[#E6D5B8] transition-all"
-              >
-                Submit Inquiry
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-          </form>
-        </motion.div>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2">
+                <p className="font-sans text-white/30 text-xs leading-relaxed max-w-xs">
+                  We respond to all enquiries within 24 hours. Your details are kept strictly private.
+                </p>
+                <button
+                  type="submit"
+                  className="group flex items-center gap-3 bg-[#B8956A] text-white font-sans-alt text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4 hover:bg-[#8C6E47] transition-all duration-300"
+                >
+                  Send Enquiry
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

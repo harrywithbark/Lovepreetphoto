@@ -1,80 +1,105 @@
 import { motion } from 'motion/react';
-import { Camera, Video, Film, Plane, Heart, Edit, Calendar } from 'lucide-react';
+import { Camera, Video, Film, Plane, Heart, Edit, Calendar, ArrowRight } from 'lucide-react';
 
 const services = [
   {
     icon: Camera,
+    number: '01',
     title: 'Wedding Photography',
-    description: 'Stunning high-resolution photographs that freeze your precious moments in time, capturing every emotion and detail.',
-  },
-  {
-    icon: Video,
-    title: 'Videography',
-    description: 'Professional video coverage of your entire wedding day, documenting every beautiful moment as it unfolds.',
+    description: 'Documentary-style and artful portraiture that captures authentic emotion, intimate glances, and the quiet details that make your day uniquely yours.',
   },
   {
     icon: Film,
-    title: 'Cinematography',
-    description: 'Cinematic wedding films with artistic direction, creating a movie-like experience of your special day.',
-  },
-  {
-    icon: Plane,
-    title: 'Drone Shoots',
-    description: 'Breathtaking aerial perspectives that add a unique dimension to your wedding story.',
+    number: '02',
+    title: 'Cinematic Films',
+    description: 'Feature-length wedding films crafted with cinematic direction, professional sound design, and colour grading that rivals studio productions.',
   },
   {
     icon: Heart,
-    title: 'Pre-wedding Shoots',
-    description: 'Romantic pre-wedding sessions in stunning locations, celebrating your journey before the big day.',
+    number: '03',
+    title: 'Pre-Wedding Sessions',
+    description: 'Intimate shoots in meaningful locations — a chance to connect with us and create heirloom portraits before the celebration begins.',
   },
   {
-    icon: Edit,
-    title: 'Wedding Film Editing',
-    description: 'Expert post-production with color grading, sound design, and storytelling that brings your wedding to life.',
+    icon: Plane,
+    number: '04',
+    title: 'Destination Weddings',
+    description: 'We travel the world to capture your ceremony — from Tuscany vineyards to Rajasthan palaces. No destination is too grand or too remote.',
+  },
+  {
+    icon: Video,
+    number: '05',
+    title: 'Same-Day Edits',
+    description: 'A same-day film screened at your reception — reliving the morning\'s ceremony just hours after it happened. A guest favourite.',
   },
   {
     icon: Calendar,
-    title: 'Event Coverage',
-    description: 'Comprehensive coverage of all wedding events including engagement, sangeet, mehendi, and reception.',
+    number: '06',
+    title: 'Multi-Day Events',
+    description: 'Full coverage across mehendi, sangeet, ceremony, and reception. Every ritual and tradition preserved with equal care and artistry.',
+  },
+  {
+    icon: Plane,
+    number: '07',
+    title: 'Aerial & Drone',
+    description: 'Breathtaking aerial perspectives that reveal the scale and beauty of your venue, adding a cinematic dimension to your visual story.',
+  },
+  {
+    icon: Edit,
+    number: '08',
+    title: 'Album Design',
+    description: 'Handcrafted heirloom albums printed on archival paper, designed as a keepsake that will be treasured across generations.',
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-[var(--color-canvas)]">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-28 bg-[#F9F5F0]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl mb-4 font-serif text-[var(--color-ink)]">Our Services</h2>
-          <div className="w-24 h-1 mx-auto mb-6 bg-[var(--color-champagne)]"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-sans-alt">
-            Comprehensive wedding coverage tailored to capture every precious moment of your celebration
-          </p>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-10 h-px bg-[#B8956A]" />
+            <span className="font-sans-alt text-[#B8956A] text-xs font-semibold tracking-[0.3em] uppercase">What We Offer</span>
+          </div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <h2 className="font-serif text-5xl sm:text-6xl text-[#0C0A09] max-w-lg" style={{ fontWeight: 300 }}>
+              Crafting Stories<br />
+              <span style={{ fontStyle: 'italic' }}>Worth Keeping</span>
+            </h2>
+            <p className="text-[#6B5E54] font-sans max-w-md leading-relaxed lg:text-right">
+              Every wedding is a world of its own. We offer a complete suite of visual storytelling services, tailored to honour your unique celebration.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#E8E0D6]">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="bg-white p-8 rounded-2xl border border-[var(--color-champagne)] shadow-sm hover:shadow-xl transition-all"
+              transition={{ duration: 0.5, delay: index * 0.07 }}
+              className="group bg-[#F9F5F0] hover:bg-white p-8 transition-all duration-300 cursor-default"
             >
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-[#FAFAFA] border border-[#E6D5B8]"
-              >
-                <service.icon className="w-8 h-8 text-[var(--color-ink)]" />
+              <div className="flex items-start justify-between mb-8">
+                <span className="font-sans-alt text-[#B8956A]/50 text-xs font-semibold tracking-[0.2em]">{service.number}</span>
+                <service.icon className="w-5 h-5 text-[#B8956A] opacity-60 group-hover:opacity-100 transition-opacity" />
               </div>
-              <h3 className="text-2xl mb-4 font-serif text-[var(--color-ink)]">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed font-sans">{service.description}</p>
+              <h3 className="font-serif text-xl text-[#0C0A09] mb-3 leading-tight">{service.title}</h3>
+              <p className="text-[#6B5E54] text-sm leading-relaxed font-sans">{service.description}</p>
+              <div className="mt-6 flex items-center gap-2 text-[#B8956A] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="font-sans-alt text-xs tracking-wider uppercase font-semibold">Learn More</span>
+                <ArrowRight className="w-3 h-3" />
+              </div>
             </motion.div>
           ))}
         </div>

@@ -13,14 +13,15 @@ export default function App() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Lovepreet Photos & Films",
-    "image": "",
-    "description": "Luxurious, modern wedding photography and cinematography by Lovepreet Photos & Films.",
+    "image": "/logo.png",
+    "description": "Award-winning wedding photography and cinematic film by Lovepreet Photos & Films. Serving couples globally with luxury visual storytelling.",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Global",
-      "addressCountry": "US"
+      "addressLocality": "India",
+      "addressCountry": "IN"
     },
-    "priceRange": "$$$$"
+    "priceRange": "££££",
+    "url": "https://lovepreetfilms.com"
   };
 
   return (

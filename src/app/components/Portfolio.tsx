@@ -1,121 +1,184 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { X, MapPin, ArrowRight } from 'lucide-react';
+
+const categories = ['All', 'Destination', 'Traditional', 'Intimate', 'Grand'];
 
 const galleries = [
-  {
-    id: 1,
-    title: 'Sophia & James',
-    location: 'Tuscany, Italy',
-  },
-  {
-    id: 2,
-    title: 'Priya & Rahul',
-    location: 'Udaipur, India',
-  },
-  {
-    id: 3,
-    title: 'Emma & David',
-    location: 'Santorini, Greece',
-  },
-  {
-    id: 4,
-    title: 'Olivia & Michael',
-    location: 'Paris, France',
-  },
-  {
-    id: 5,
-    title: 'Isabella & Thomas',
-    location: 'Napa Valley, USA',
-  },
-  {
-    id: 6,
-    title: 'Ava & Daniel',
-    location: 'Bali, Indonesia',
-  },
+  { id: 1, title: 'Sophia & James', location: 'Tuscany, Italy', category: 'Destination', year: '2024', aspect: 'tall', bg: 'from-[#3D2B1F] to-[#1A110A]' },
+  { id: 2, title: 'Priya & Rahul', location: 'Udaipur, India', category: 'Grand', year: '2024', aspect: 'wide', bg: 'from-[#2B1F3D] to-[#110A1A]' },
+  { id: 3, title: 'Emma & David', location: 'Santorini, Greece', category: 'Destination', year: '2024', aspect: 'square', bg: 'from-[#1F3D2B] to-[#0A1A11]' },
+  { id: 4, title: 'Ananya & Vikram', location: 'Jaipur, India', category: 'Traditional', year: '2024', aspect: 'tall', bg: 'from-[#3D2B1F] to-[#241508]' },
+  { id: 5, title: 'Isabella & Thomas', location: 'Napa Valley, USA', category: 'Intimate', year: '2023', aspect: 'wide', bg: 'from-[#2B3D1F] to-[#141F0A]' },
+  { id: 6, title: 'Aisha & Omar', location: 'Dubai, UAE', category: 'Grand', year: '2023', aspect: 'square', bg: 'from-[#3D1F2B] to-[#1A0A11]' },
+  { id: 7, title: 'Charlotte & Liam', location: 'Lake Como, Italy', category: 'Destination', year: '2023', aspect: 'tall', bg: 'from-[#1F2B3D] to-[#0A1118]' },
+  { id: 8, title: 'Meera & Arjun', location: 'Mumbai, India', category: 'Traditional', year: '2023', aspect: 'square', bg: 'from-[#3D3120] to-[#1A1508]' },
+  { id: 9, title: 'Olivia & Ben', location: 'Paris, France', category: 'Intimate', year: '2023', aspect: 'wide', bg: 'from-[#2B1F3D] to-[#150A1A]' },
 ];
 
 export function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedGallery, setSelectedGallery] = useState<number | null>(null);
 
+  const filtered = selectedCategory === 'All'
+    ? galleries
+    : galleries.filter(g => g.category === selectedCategory);
+
+  const selected = galleries.find(g => g.id === selectedGallery);
+
   return (
-    <section id="portfolio" className="py-24 px-4 sm:px-6 lg:px-8 bg-[var(--color-canvas)]">
-      <div className="max-w-7xl mx-auto">
+    <section id="portfolio" className="py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl mb-4 font-serif text-[var(--color-ink)]">Our Portfolio</h2>
-          <div className="w-24 h-1 mx-auto mb-6 bg-[var(--color-champagne)]"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-sans-alt">
-            Each wedding tells a unique story. Explore our collection of unforgettable moments
-          </p>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-10 h-px bg-[#B8956A]" />
+            <span className="font-sans-alt text-[#B8956A] text-xs font-semibold tracking-[0.3em] uppercase">Our Portfolio</span>
+          </div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+            <h2 className="font-serif text-5xl sm:text-6xl text-[#0C0A09] max-w-md" style={{ fontWeight: 300 }}>
+              A Gallery of<br />
+              <span style={{ fontStyle: 'italic' }}>Real Love</span>
+            </h2>
+            {/* Category filters */}
+            <div className="flex flex-wrap gap-2">
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`font-sans-alt text-xs font-semibold tracking-[0.15em] uppercase px-5 py-2.5 border transition-all duration-200 ${
+                    selectedCategory === cat
+                      ? 'bg-[#0C0A09] text-white border-[#0C0A09]'
+                      : 'border-[#E8E0D6] text-[#6B5E54] hover:border-[#B8956A] hover:text-[#B8956A]'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleries.map((gallery, index) => (
-            <motion.div
-              key={gallery.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="relative aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer group shadow-lg"
-              onClick={() => setSelectedGallery(gallery.id)}
-            >
-              <div className="w-full h-full bg-[#EAEAEA] flex items-center justify-center text-gray-400 font-sans-alt border border-gray-200">
-                <span className="text-sm uppercase tracking-widest">{gallery.title} Placeholder</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-2xl mb-2 font-serif">{gallery.title}</h3>
-                  <p className="text-[var(--color-champagne)] font-sans-alt">{gallery.location}</p>
+        {/* Masonry-ish grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-3"
+          >
+            {filtered.map((gallery, index) => (
+              <motion.div
+                key={gallery.id}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                onClick={() => setSelectedGallery(gallery.id)}
+                className={`relative overflow-hidden cursor-pointer group ${
+                  gallery.aspect === 'tall' ? 'row-span-2' :
+                  gallery.aspect === 'wide' ? 'col-span-1' : ''
+                }`}
+                style={{ minHeight: gallery.aspect === 'tall' ? '480px' : '220px' }}
+              >
+                {/* Placeholder with gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${gallery.bg}`} />
+
+                {/* Decorative pattern */}
+                <div className="absolute inset-0 opacity-10"
+                  style={{
+                    backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(184,149,106,0.3) 0%, transparent 70%)',
+                  }}
+                />
+
+                {/* Gallery label placeholder */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-sans-alt text-white/20 text-xs tracking-widest uppercase">{gallery.title}</span>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0A09]/90 via-[#0C0A09]/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
+                    <p className="font-sans-alt text-[#B8956A] text-xs tracking-[0.15em] uppercase mb-1 flex items-center gap-1.5">
+                      <MapPin className="w-3 h-3" />
+                      {gallery.location} · {gallery.year}
+                    </p>
+                    <h3 className="font-serif text-white text-2xl mb-3">{gallery.title}</h3>
+                    <div className="flex items-center gap-2 text-white/70 font-sans-alt text-xs tracking-wider uppercase">
+                      <span>View Gallery</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* View all CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mt-14"
+        >
+          <a href="#contact" className="inline-flex items-center gap-3 font-sans-alt text-xs font-semibold tracking-[0.2em] uppercase border border-[#B8956A] text-[#B8956A] px-10 py-4 hover:bg-[#B8956A] hover:text-white transition-all duration-300">
+            Commission Your Story
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </motion.div>
       </div>
 
       {/* Gallery Modal */}
       <AnimatePresence>
-        {selectedGallery && (
+        {selectedGallery && selected && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[var(--color-ink)]/95 z-50 flex flex-col items-center justify-center p-4"
+            className="fixed inset-0 bg-[#0C0A09]/97 z-50 flex flex-col overflow-auto"
             onClick={() => setSelectedGallery(null)}
           >
-            <button
-              className="absolute top-4 right-4 text-white hover:text-[var(--color-champagne)] transition-colors"
-              onClick={() => setSelectedGallery(null)}
-            >
-              <X className="w-8 h-8" />
-            </button>
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <div>
+                <h3 className="font-serif text-white text-3xl">{selected.title}</h3>
+                <p className="font-sans-alt text-[#B8956A] text-xs tracking-[0.15em] uppercase mt-1 flex items-center gap-1.5">
+                  <MapPin className="w-3 h-3" />
+                  {selected.location} · {selected.year}
+                </p>
+              </div>
+              <button
+                className="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:border-[#B8956A] hover:text-[#B8956A] transition-colors"
+                onClick={() => setSelectedGallery(null)}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
             <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              className="max-w-6xl w-full"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="flex-1 p-6"
               onClick={(e) => e.stopPropagation()}
             >
-              <h3 className="text-white text-3xl font-serif mb-6 text-center">
-                {galleries.find(g => g.id === selectedGallery)?.title} Gallery
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {[1, 2, 3, 4, 5, 6].map((imgItem) => (
-                  <div key={imgItem} className="aspect-square bg-white/10 flex items-center justify-center text-white/50 border border-white/20 rounded-lg">
-                    <span className="font-sans-alt text-sm">Image {imgItem} Placeholder</span>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-5xl mx-auto">
+                {[1, 2, 3, 4, 5, 6].map((item) => (
+                  <div
+                    key={item}
+                    className={`bg-gradient-to-br ${selected.bg} flex items-center justify-center border border-white/5`}
+                    style={{ aspectRatio: item % 3 === 0 ? '4/5' : '4/3' }}
+                  >
+                    <span className="font-sans-alt text-white/20 text-xs tracking-widest uppercase">Photo {item}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-white/70 text-center mt-6 font-sans-alt">Click anywhere outside to close</p>
             </motion.div>
           </motion.div>
         )}

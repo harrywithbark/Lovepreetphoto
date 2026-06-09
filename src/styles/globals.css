@@ -1,20 +1,23 @@
-@import "tailwindcss";
 @import "./fonts.css";
+@import "tailwindcss";
 
 :root {
-  --color-ink: #050505;
-  --color-canvas: #FAFAFA;
-  --color-champagne: #F7E7CE;
-  
-  /* Fallbacks/Overrides for existing variables to Champagne/Ink themes */
-  --color-gold: #F7E7CE;
-  --color-rose-gold: #E6D5B8;
-  --color-blush: #1A1A1A; /* dark contrast */
-  --color-cream: #FAFAFA;
+  --color-ink: #0C0A09;
+  --color-canvas: #F9F5F0;
+  --color-gold: #B8956A;
+  --color-gold-light: #D4B896;
+  --color-gold-dark: #8C6E47;
+  --color-champagne: #B8956A;
+  --color-rose-gold: #D4B896;
+  --color-cream: #F9F5F0;
+  --color-warm-white: #FDFAF6;
+  --color-divider: #E8E0D6;
+  --color-charcoal: #2A2420;
+  --color-mid: #6B5E54;
 }
 
 body {
-  @apply bg-[#FAFAFA] text-[#050505];
+  @apply bg-[#F9F5F0] text-[#0C0A09];
   font-family: 'DM Sans', sans-serif;
 }
 
@@ -27,14 +30,12 @@ h4, h5, h6, .font-sans-alt {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -42,10 +43,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-champagne);
-  border-radius: 5px;
+  background: var(--color-gold);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E6D5B8;
+  background: var(--color-gold-dark);
 }
