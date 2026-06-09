@@ -1,0 +1,4 @@
+- [Project rebrand](rebrand-2024.md) — Real business is Lovepreet Photography, Surrey BC, Canada. Not India.
+- [Premium gold palette](palette.md) — Brand uses `#B8956A` (burnished gold) on `#0C0A09` (deep warm black). `globals.css` must keep `@import "./fonts.css"` before `@import "tailwindcss"` to avoid PostCSS ordering errors.
+- [Social links](social-links.md) — Instagram: @lovepreetphotography.ca, Facebook: /lovepreetphotography.ca, Google Maps link in contact. All socials open in new tab.
+- [Client portfolio mix](portfolio-localization.md) — Mix of real BC locations (Surrey, Vancouver, Abbotsford) with global destinations for aspirational feel.

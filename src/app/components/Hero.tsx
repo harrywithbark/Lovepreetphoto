@@ -43,7 +43,7 @@ export function Hero() {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="mb-10"
           >
-            <img src="/logo.png" alt="Lovepreet Photos & Films" className="w-24 h-24 rounded-full object-cover mx-auto border border-[#B8956A]/40" />
+            <img src="/logo.png" alt="Lovepreet Photography" className="w-24 h-24 rounded-full object-cover mx-auto border border-[#B8956A]/40" />
           </motion.div>
 
           {/* Eyebrow */}
@@ -113,7 +113,7 @@ export function Hero() {
             className="flex items-center gap-2 mt-10 text-white/40 font-sans-alt text-xs tracking-widest"
           >
             <MapPin className="w-3 h-3" />
-            <span>Based in India · Shooting Worldwide</span>
+            <span>Surrey, BC · Shooting Worldwide</span>
           </motion.div>
         </div>
 

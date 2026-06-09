@@ -13,9 +13,9 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
     { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'FAQ', href: '#faq' },
   ];
@@ -36,7 +36,7 @@ export function Navbar() {
           <a href="#home" className="flex items-center">
             <img
               src="/logo.png"
-              alt="Lovepreet Photos & Films"
+              alt="Lovepreet Photography"
               className={`h-12 w-12 rounded-full object-cover transition-all duration-300 ${isScrolled ? '' : 'brightness-0 invert'}`}
             />
           </a>

@@ -1,27 +1,31 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { About } from './components/About';
 import { Services } from './components/Services';
 import { Portfolio } from './components/Portfolio';
 import { Testimonials } from './components/Testimonials';
 import { Pricing } from './components/Pricing';
-import { IntakeForm } from './components/IntakeForm';
+import { InstagramFeed } from './components/InstagramFeed';
+import { Locations } from './components/Locations';
 import { FAQ } from './components/FAQ';
+import { IntakeForm } from './components/IntakeForm';
 import { Footer } from './components/Footer';
 
 export default function App() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Lovepreet Photos & Films",
+    "name": "Lovepreet Photography",
     "image": "/logo.png",
-    "description": "Award-winning wedding photography and cinematic film by Lovepreet Photos & Films. Serving couples globally with luxury visual storytelling.",
+    "description": "Wedding photography and cinematography by Lovepreet Photography. Based in Surrey, BC, serving couples across Vancouver, Fraser Valley, and worldwide.",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "India",
-      "addressCountry": "IN"
+      "addressLocality": "Surrey",
+      "addressRegion": "British Columbia",
+      "addressCountry": "CA"
     },
     "priceRange": "££££",
-    "url": "https://lovepreetfilms.com"
+    "url": "https://www.lovepreetphotography.ca"
   };
 
   return (
@@ -29,10 +33,13 @@ export default function App() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Navbar />
       <Hero />
+      <About />
       <Services />
       <Portfolio />
       <Testimonials />
       <Pricing />
+      <InstagramFeed />
+      <Locations />
       <FAQ />
       <IntakeForm />
       <Footer />

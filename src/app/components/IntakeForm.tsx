@@ -2,10 +2,10 @@ import { motion } from 'motion/react';
 import { Send, Phone, Mail, MapPin, Instagram } from 'lucide-react';
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'hello@lovepreetfilms.com' },
-  { icon: Phone, label: 'Phone', value: '+44 7700 900 000' },
-  { icon: MapPin, label: 'Based In', value: 'India · Available Worldwide' },
-  { icon: Instagram, label: 'Instagram', value: '@lovepreetfilms' },
+  { icon: Mail, label: 'Email', value: 'hello@lovepreetphotography.ca' },
+  { icon: Phone, label: 'Phone', value: 'Available on enquiry' },
+  { icon: MapPin, label: 'Based In', value: 'Surrey, BC, Canada', href: 'https://maps.app.goo.gl/9x5d6f8iVHNPUsVT7' },
+  { icon: Instagram, label: 'Instagram', value: '@lovepreetphotography.ca', href: 'https://www.instagram.com/lovepreetphotography.ca/' },
 ];
 
 export function IntakeForm() {
@@ -21,7 +21,7 @@ export function IntakeForm() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-2 flex flex-col"
           >
-            <img src="/logo.png" alt="Lovepreet Photos & Films" className="w-20 h-20 rounded-full object-cover mb-8 border border-[#B8956A]/30" />
+            <img src="/logo.png" alt="Lovepreet Photography" className="w-20 h-20 rounded-full object-cover mb-8 border border-[#B8956A]/30" />
 
             <div className="flex items-center gap-4 mb-6">
               <div className="w-10 h-px bg-[#B8956A]" />
@@ -46,7 +46,13 @@ export function IntakeForm() {
                   </div>
                   <div>
                     <p className="font-sans-alt text-white/30 text-xs tracking-wider uppercase mb-0.5">{item.label}</p>
-                    <p className="font-sans text-white/70 text-sm">{item.value}</p>
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="font-sans text-white/70 text-sm hover:text-[#B8956A] transition-colors">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="font-sans text-white/70 text-sm">{item.value}</p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -56,7 +62,7 @@ export function IntakeForm() {
             <div className="border-t border-white/10 pt-8 mt-auto">
               <p className="font-sans-alt text-white/30 text-xs tracking-wider uppercase mb-4">As Featured In</p>
               <div className="flex flex-wrap gap-4">
-                {['Vogue Weddings', 'Harper\'s Bazaar', 'Brides India', 'The Knot'].map(pub => (
+                {['Fraser Valley Weddings', 'Vancouver Bride', 'South Asian Wedding', 'WeddingWire'].map(pub => (
                   <span key={pub} className="font-sans-alt text-white/40 text-xs tracking-wide border border-white/10 px-3 py-1.5">
                     {pub}
                   </span>

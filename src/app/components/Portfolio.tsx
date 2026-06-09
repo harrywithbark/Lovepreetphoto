@@ -6,13 +6,13 @@ const categories = ['All', 'Destination', 'Traditional', 'Intimate', 'Grand'];
 
 const galleries = [
   { id: 1, title: 'Sophia & James', location: 'Tuscany, Italy', category: 'Destination', year: '2024', aspect: 'tall', bg: 'from-[#3D2B1F] to-[#1A110A]' },
-  { id: 2, title: 'Priya & Rahul', location: 'Udaipur, India', category: 'Grand', year: '2024', aspect: 'wide', bg: 'from-[#2B1F3D] to-[#110A1A]' },
+  { id: 2, title: 'Priya & Rahul', location: 'Surrey, BC', category: 'Grand', year: '2024', aspect: 'wide', bg: 'from-[#2B1F3D] to-[#110A1A]' },
   { id: 3, title: 'Emma & David', location: 'Santorini, Greece', category: 'Destination', year: '2024', aspect: 'square', bg: 'from-[#1F3D2B] to-[#0A1A11]' },
-  { id: 4, title: 'Ananya & Vikram', location: 'Jaipur, India', category: 'Traditional', year: '2024', aspect: 'tall', bg: 'from-[#3D2B1F] to-[#241508]' },
+  { id: 4, title: 'Ananya & Vikram', location: 'Vancouver, BC', category: 'Traditional', year: '2024', aspect: 'tall', bg: 'from-[#3D2B1F] to-[#241508]' },
   { id: 5, title: 'Isabella & Thomas', location: 'Napa Valley, USA', category: 'Intimate', year: '2023', aspect: 'wide', bg: 'from-[#2B3D1F] to-[#141F0A]' },
   { id: 6, title: 'Aisha & Omar', location: 'Dubai, UAE', category: 'Grand', year: '2023', aspect: 'square', bg: 'from-[#3D1F2B] to-[#1A0A11]' },
   { id: 7, title: 'Charlotte & Liam', location: 'Lake Como, Italy', category: 'Destination', year: '2023', aspect: 'tall', bg: 'from-[#1F2B3D] to-[#0A1118]' },
-  { id: 8, title: 'Meera & Arjun', location: 'Mumbai, India', category: 'Traditional', year: '2023', aspect: 'square', bg: 'from-[#3D3120] to-[#1A1508]' },
+  { id: 8, title: 'Meera & Arjun', location: 'Abbotsford, BC', category: 'Traditional', year: '2023', aspect: 'square', bg: 'from-[#3D3120] to-[#1A1508]' },
   { id: 9, title: 'Olivia & Ben', location: 'Paris, France', category: 'Intimate', year: '2023', aspect: 'wide', bg: 'from-[#2B1F3D] to-[#150A1A]' },
 ];
 

@@ -11,9 +11,9 @@ const testimonials = [
   },
   {
     name: 'Priya & Rahul Sharma',
-    wedding: 'Udaipur, India — December 2024',
+    wedding: 'Surrey, BC — December 2024',
     initials: 'PR',
-    text: 'The cinematography is breathtaking. They captured not just visuals but the entire emotional weight of a three-day royal wedding. When we saw the final film, we wept. It was more beautiful than we ever imagined possible.',
+    text: 'The cinematography is breathtaking. They captured not just visuals but the entire emotional weight of a three-day South Asian wedding. When we saw the final film, we wept. It was more beautiful than we ever imagined possible.',
   },
   {
     name: 'Emma & David Chen',
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     name: 'Ananya & Vikram Patel',
-    wedding: 'Jaipur, India — February 2024',
+    wedding: 'Vancouver, BC — February 2024',
     initials: 'AV',
     text: 'The attention to detail is unmatched. They photographed every ritual, every family moment, every stolen glance — without us ever feeling observed. The result is a collection that truly tells our entire story.',
   },
